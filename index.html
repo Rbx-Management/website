@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rbx Management</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: white;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.125rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background-color: #7c3aed;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      color: white;
+      border: none;
+      border-radius: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn:hover {
+      background-color: #6d28d9;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 4rem;
+    }
+    .card {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 2rem;
+    }
+    .card h3 {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+    .icon {
+      font-size: 2rem;
+      color: #c084fc;
+    }
+    .links {
+      margin-top: 3rem;
+    }
+    .links a {
+      margin: 0 1rem;
+      color: #a78bfa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .links a:hover {
+      text-decoration: underline;
+    }
+    .footer {
+      margin-top: 4rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    .footer a {
+      color: #a78bfa;
+      text-decoration: none;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Rbx Manager</h1>
+    <p>A powerful Discord bot for Roblox clothing creators. Modify assets, remove watermarks, add custom branding, and more.</p>
+    <a class="btn" href="https://discord.com/oauth2/authorize?client_id=1381988686589333606" target="_blank" rel="noopener noreferrer">Invite Bot</a>
+
+    <div class="links">
+      <a href="https://rbx-management.github.io/PrivacyPolicy.html" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="https://rbx-management.github.io/TOS.html" target="_blank" rel="noopener noreferrer">Terms of Service</a>
+    </div>
+
+    <div class="features">
+      <div class="card">
+        <div class="icon">✨</div>
+        <h3>Remove Watermarks</h3>
+        <p>Automatically clean up your assets by removing default watermarks.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🎨</div>
+        <h3>Custom Watermarks</h3>
+        <p>Add personalized watermarks to protect your unique designs.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🪄</div>
+        <h3>Asset Editing</h3>
+        <p>Modify and enhance clothing textures with ease, right from Discord.</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      Created by <a href="https://github.com/Rbx-Management" target="_blank" rel="noopener noreferrer">Rbx Management Development Team</a>
+    </div>
+  </div>
+</body>
+</html>
