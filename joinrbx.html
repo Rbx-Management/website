@@ -1,81 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Launching Roblox...</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      margin-top: 5em;
-    }
-    .note {
-      font-size: 0.9em;
-      color: #777;
-      margin-top: 1em;
-    }
-  </style>
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const params = new URLSearchParams(window.location.search);
-
-      // Helper: Validate numeric ID
-      const isNumeric = (val) => /^\d+$/.test(val);
-
-      const placeId = params.get('placeId');
-      const userId = params.get('userId');
-      const accessCode = params.get('accessCode');
-      const linkCode = params.get('linkCode');
-      const gameInstanceId = params.get('gameInstanceId');
-      const launchData = params.get('launchData');
-
-      if (!placeId && !userId) {
-        document.body.innerText = "Error: placeId or userId is required.";
-        return;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Launching Roblox...</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        text-align: center;
+        margin-top: 5em;
       }
-
-      if (placeId && !isNumeric(placeId)) {
-        document.body.innerText = "Error: Invalid placeId.";
-        return;
+      .note {
+        font-size: 0.9em;
+        color: #777;
+        margin-top: 1em;
       }
+    </style>
+    <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        const params = new URLSearchParams(window.location.search);
 
-      if (userId && !isNumeric(userId)) {
-        document.body.innerText = "Error: Invalid userId.";
-        return;
-      }
+        const isNumeric = (val) => /^\d+$/.test(val);
 
-      if (gameInstanceId && !/^[\w-]+$/.test(gameInstanceId)) {
-        document.body.innerText = "Error: Invalid gameInstanceId.";
-        return;
-      }
+        const placeId = params.get('placeId');
+        const userId = params.get('userId');
+        const accessCode = params.get('accessCode');
+        const linkCode = params.get('linkCode');
+        const gameInstanceId = params.get('gameInstanceId');
+        const launchData = params.get('launchData');
 
-      let deepLink = 'roblox://';
-      const parts = [];
+        if (!placeId && !userId) {
+          document.body.innerText = "Error: placeId or userId is required.";
+          return;
+        }
 
-      if (placeId) parts.push(`placeId=${encodeURIComponent(placeId)}`);
-      if (userId) parts.push(`userId=${encodeURIComponent(userId)}`);
-      if (accessCode) parts.push(`accessCode=${encodeURIComponent(accessCode)}`);
-      if (linkCode) parts.push(`linkCode=${encodeURIComponent(linkCode)}`);
-      if (gameInstanceId) parts.push(`gameInstanceId=${encodeURIComponent(gameInstanceId)}`);
-      if (launchData) parts.push(`launchData=${encodeURIComponent(launchData)}`);
+        if (placeId && !isNumeric(placeId)) {
+          document.body.innerText = "Error: Invalid placeId.";
+          return;
+        }
 
-      deepLink += parts.join('&');
+        if (userId && !isNumeric(userId)) {
+          document.body.innerText = "Error: Invalid userId.";
+          return;
+        }
 
-      // Set fallback link
-      const link = document.getElementById("fallback-link");
-      link.href = deepLink;
+        if (gameInstanceId && !/^[\w-]+$/.test(gameInstanceId)) {
+          document.body.innerText = "Error: Invalid gameInstanceId.";
+          return;
+        }
 
-      // Small delay for fallback to render
-      setTimeout(() => {
-        window.location.href = deepLink;
-      }, 500);
-    });
-  </script>
-</head>
-<body>
-<p>Launching Roblox…</p>
-<p>If nothing happens, <a id="fallback-link" href="#">click here</a>.</p>
-<p class="note">⚠️ Do not share this link publicly if it contains private access or server codes.</p>
-</body>
+        let deepLink = 'roblox://';
+        const parts = [];
+
+        if (placeId) parts.push(`placeId=${encodeURIComponent(placeId)}`);
+        if (userId) parts.push(`userId=${encodeURIComponent(userId)}`);
+        if (accessCode) parts.push(`accessCode=${encodeURIComponent(accessCode)}`);
+        if (linkCode) parts.push(`linkCode=${encodeURIComponent(linkCode)}`);
+        if (gameInstanceId) parts.push(`gameInstanceId=${encodeURIComponent(gameInstanceId)}`);
+        if (launchData) parts.push(`launchData=${encodeURIComponent(launchData)}`);
+
+        deepLink += parts.join('&');
+
+        const link = document.getElementById("fallback-link");
+        link.href = deepLink;
+
+        setTimeout(() => {
+          window.location.href = deepLink;
+        }, 500);
+      });
+    </script>
+  </head>
+  <body>
+    <p>Launching Roblox…</p>
+    <p>If nothing happens, <a id="fallback-link" href="#">click here</a>.</p>
+    <p class="note">⚠️ Do not share this link publicly if it contains private access or server codes.</p>
+  </body>
 </html>
