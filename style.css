@@ -6,11 +6,13 @@
 }
 
 body {
+    min-height: 100vh;
     min-height: 100dvh;
     padding: 2rem;
     background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
     color: #ccc;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 #particles-js {
@@ -59,6 +61,8 @@ p {
     display: inline-block;
     margin-top: 0.5rem;
     box-shadow: 0 0 10px #7c3aed66;
+    line-height: 1;
+    user-select: none;
 }
 
 .btn:hover {
@@ -94,6 +98,7 @@ p {
     padding: 2rem;
     box-shadow: 0 0 10px #7c3aed33;
     transition: transform 0.3s ease;
+    will-change: transform;
 }
 
 .card:hover {
@@ -133,7 +138,6 @@ p {
     text-decoration: underline;
 }
 
-
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -146,11 +150,19 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
 }
 
 .modal-container {
     background: #111;
-    color: #ccc;
+    color: #e0e0e0;
     max-width: 800px;
     max-height: 80vh;
     overflow-y: auto;
@@ -160,9 +172,12 @@ p {
     position: relative;
     font-size: 1rem;
     line-height: 1.6;
+    scrollbar-width: thin;
+    scrollbar-color: #7c3aed #1c1c2e;
 }
 
-.modal-container h1, .modal-container h2 {
+.modal-container h1,
+.modal-container h2 {
     color: #fff;
 }
 
@@ -184,6 +199,7 @@ p {
     color: #aaa;
     cursor: pointer;
 }
+
 #closeModal:hover {
     color: #fff;
 }
@@ -212,9 +228,9 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0; /* no gap since overlapping */
+    gap: 0;
     position: relative;
-    padding-left: 10px; /* some left padding so first avatar isn’t flush left */
+    padding-left: 10px;
 }
 
 .avatars a {
@@ -231,7 +247,7 @@ p {
 }
 
 .avatars a:not(:first-child) {
-    margin-left: -10px; /* overlap previous avatar by 10px */
+    margin-left: -10px;
     z-index: 0;
 }
 
@@ -246,4 +262,3 @@ p {
     object-fit: cover;
     display: block;
 }
-

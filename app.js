@@ -28,38 +28,60 @@ particlesJS("particles-js", {
     "retina_detect": true
 });
 
-document.getElementById('openPrivacy').addEventListener('click', () => {
-    openModal('privacy.html');
-});
-document.getElementById('openTOS').addEventListener('click', () => {
-    openModal('terms.html');
-});
-document.getElementById('closeModal').addEventListener('click', closeModal);
+document.addEventListener('DOMContentLoaded', () => {
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalContent = document.getElementById('modalContent');
+    const closeModalBtn = document.getElementById('closeModal');
 
-function openModal(file) {
-    fetch(file)
-        .then(res => res.text())
-        .then(html => {
-            document.getElementById('modalContent').innerHTML = html;
-            document.getElementById('modalOverlay').style.display = 'flex';
-            document.getElementById('modalContainer').scrollTop = 0;
-        })
-        .catch(err => {
-            document.getElementById('modalContent').innerHTML = 'Error loading content.';
-            console.error(err);
-        });
-}
+    function openModal(file) {
+        modalOverlay.classList.add('show');
+        modalContent.innerHTML = 'Loading...';
 
-function closeModal() {
-    document.getElementById('modalOverlay').style.display = 'none';
-    document.getElementById('modalContent').innerHTML = '';
-}
-window.addEventListener('DOMContentLoaded', () => {
-    const hash = window.location.hash;
-    if (hash === '#privacy') {
-        openModal('privacy.html');
-    } else if (hash === '#tos') {
-        openModal('tos.html');
+        fetch(file)
+            .then(res => {
+                if (!res.ok) throw new Error('Network response was not ok');
+                return res.text();
+            })
+            .then(html => {
+                modalContent.innerHTML = html;
+                modalContent.scrollTop = 0;
+            })
+            .catch(() => {
+                modalContent.innerHTML = '<p>Error loading content.</p>';
+            });
     }
-});
 
+    function closeModal() {
+        modalOverlay.classList.remove('show');
+        setTimeout(() => {
+            modalContent.innerHTML = '';
+            history.replaceState(null, '', ' ');
+        }, 300);
+    }
+
+    closeModalBtn.addEventListener('click', closeModal);
+
+    document.getElementById('openPrivacy').addEventListener('click', e => {
+        e.preventDefault();
+        openModal('privacy.html');
+        history.pushState(null, '', '#privacy');
+    });
+
+    document.getElementById('openTOS').addEventListener('click', e => {
+        e.preventDefault();
+        openModal('terms.html');
+        history.pushState(null, '', '#tos');
+    });
+
+    if (window.location.hash === '#privacy') {
+        openModal('privacy.html');
+    } else if (window.location.hash === '#tos') {
+        openModal('terms.html');
+    }
+
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modalOverlay.classList.contains('show')) {
+            closeModal();
+        }
+    });
+});

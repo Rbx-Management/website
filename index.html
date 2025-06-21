@@ -31,7 +31,7 @@
     <a href="#" id="openTOS">Terms of Service</a>
   </div>
 
-  <div id="modalOverlay" class="modal-overlay" style="display: none;">
+  <div id="modalOverlay" class="modal-overlay">
     <div id="modalContainer" class="modal-container">
       <button id="closeModal">✖</button>
       <div id="modalContent">Loading...</div>
@@ -71,32 +71,6 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-<script>
-  // particles.js config
-  particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-      "color": { "value": "#7efefe" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5 },
-      "size": { "value": 3 },
-      "line_linked": { "enable": true, "distance": 150, "color": "#7efefe", "opacity": 0.4, "width": 1 },
-      "move": { "enable": true, "speed": 2 }
-    },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": { "enable": true, "mode": "repulse" },
-        "onclick": { "enable": true, "mode": "push" }
-      },
-      "modes": {
-        "repulse": { "distance": 100 },
-        "push": { "particles_nb": 4 }
-      }
-    },
-    "retina_detect": true
-  });
-</script>
-<script src="app.js"></script>
+<script src="app.js" defer></script>
 </body>
 </html>
