@@ -1,37 +1,37 @@
-particlesJS("particles-js", {
-    "particles": {
-        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-        "color": { "value": "#7efefe" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.5 },
-        "size": { "value": 3 },
-        "line_linked": {
-            "enable": true,
-            "distance": 150,
-            "color": "#7efefe",
-            "opacity": 0.4,
-            "width": 1
-        },
-        "move": { "enable": true, "speed": 2 }
-    },
-    "interactivity": {
-        "detect_on": "canvas",
-        "events": {
-            "onhover": { "enable": true, "mode": "repulse" },
-            "onclick": { "enable": true, "mode": "push" }
-        },
-        "modes": {
-            "repulse": { "distance": 100 },
-            "push": { "particles_nb": 4 }
-        }
-    },
-    "retina_detect": true
-});
-
 document.addEventListener('DOMContentLoaded', () => {
     const modalOverlay = document.getElementById('modalOverlay');
     const modalContent = document.getElementById('modalContent');
     const closeModalBtn = document.getElementById('closeModal');
+
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#7efefe" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5 },
+            "size": { "value": 3 },
+            "line_linked": {
+                "enable": true,
+                "distance": 150,
+                "color": "#7efefe",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": { "enable": true, "speed": 2 }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+                "onhover": { "enable": true, "mode": "repulse" },
+                "onclick": { "enable": true, "mode": "push" }
+            },
+            "modes": {
+                "repulse": { "distance": 100 },
+                "push": { "particles_nb": 4 }
+            }
+        },
+        "retina_detect": true
+    });
 
     function openModal(file) {
         modalOverlay.classList.add('show');
@@ -63,20 +63,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('openPrivacy').addEventListener('click', e => {
         e.preventDefault();
-        openModal('privacy.html');
+        openModal('modals/privacy.html');
         history.pushState(null, '', '#privacy');
     });
 
     document.getElementById('openTOS').addEventListener('click', e => {
         e.preventDefault();
-        openModal('terms.html');
+        openModal('modals/terms.html');
         history.pushState(null, '', '#tos');
     });
 
     if (window.location.hash === '#privacy') {
-        openModal('privacy.html');
+        openModal('modals/privacy.html');
     } else if (window.location.hash === '#tos') {
-        openModal('terms.html');
+        openModal('modals/terms.html');
     }
 
     document.addEventListener('keydown', e => {
