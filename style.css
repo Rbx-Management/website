@@ -13,7 +13,19 @@ body {
     color: #ccc;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
 }
+
+body.fade-in {
+    opacity: 1;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
 
 #particles-js {
     position: fixed;
@@ -261,4 +273,70 @@ p {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.btn.premium {
+    background: linear-gradient(145deg, #ffd700, #ffb700);
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 10px rgba(255, 215, 0, 0.3) inset;
+    color: #111;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    margin-left: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn.premium:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow:
+            0 0 30px rgba(255, 215, 0, 0.9),
+            0 0 20px rgba(255, 215, 0, 0.5) inset,
+            0 0 10px rgba(255, 215, 0, 0.2);
+    animation: shimmer 1s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200%;
+    }
+    50% {
+        background-position: 200%;
+    }
+    100% {
+        background-position: -200%;
+    }
+}
+
+
+@keyframes premiumPulse {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(25%, 25%) scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(50%, 50%) scale(1);
+        opacity: 0;
+    }
+}
+
+#premiumParticles {
+    position: absolute;
+    pointer-events: none;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }

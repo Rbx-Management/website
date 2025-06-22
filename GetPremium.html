@@ -16,6 +16,46 @@
 
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Code+Pro&display=swap" rel="stylesheet" />
+
+    <style>
+        body {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        body.fade-in {
+            opacity: 1;
+        }
+        body.fade-out {
+            opacity: 0;
+        }
+    </style>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('fade-in');
+        });
+
+        document.querySelectorAll('a[href]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (
+                href &&
+                !href.startsWith('#') &&
+                !href.startsWith('mailto:') &&
+                !link.hasAttribute('target')
+            ) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.body.classList.remove('fade-in');  // remove fade-in
+                    document.body.classList.add('fade-out');    // add fade-out
+                    setTimeout(() => {
+                        window.location.href = this.href;
+                    }, 400);
+                });
+            }
+        });
+    </script>
+
+
 </head>
 <body>
 
@@ -60,23 +100,42 @@
                 distance: 150,
                 color: "#7efefe",
                 opacity: 0.3,
-                width: 1
+                width: 1,
             },
-            move: { enable: true, speed: 1.5 }
+            move: { enable: true, speed: 1.5 },
         },
         interactivity: {
             detect_on: "canvas",
             events: {
                 onhover: { enable: true, mode: "grab" },
-                onclick: { enable: true, mode: "push" }
+                onclick: { enable: true, mode: "push" },
             },
             modes: {
                 grab: { distance: 140, line_linked: { opacity: 0.6 } },
-                push: { particles_nb: 4 }
-            }
+                push: { particles_nb: 4 },
+            },
         },
-        retina_detect: true
+        retina_detect: true,
     });
+
+    document.querySelectorAll('a[href]').forEach(link => {
+        const href = link.getAttribute('href');
+        if (
+            href &&
+            !href.startsWith('#') &&
+            !href.startsWith('mailto:') &&
+            !link.hasAttribute('target')
+        ) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.body.classList.add('fade-out');
+                setTimeout(() => {
+                    window.location.href = this.href;
+                }, 400);
+            });
+        }
+    });
+
 </script>
 </body>
 </html>
