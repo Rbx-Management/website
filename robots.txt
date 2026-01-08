@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block internal or non-public pages
+Disallow: /admin/
+Disallow: /api/
+Disallow: /private/
+
+# Sitemap location
+Sitemap: https://rbxmanager.me/sitemap.xml
