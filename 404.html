@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 — Page Not Found | Rbx Manager</title>
+
+    <!-- Meta SEO -->
+    <meta name="description" content="Oops! The page you are looking for doesn’t exist. Rbx Manager is a Roblox clothing Discord bot.">
+    <meta name="robots" content="noindex, follow">
+    <meta property="og:title" content="404 — Page Not Found | Rbx Manager">
+    <meta property="og:description" content="Oops! The page you are looking for doesn’t exist. Rbx Manager is a Roblox clothing Discord bot.">
+    <meta property="og:image" content="https://rbxmanager.me/images/emb.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#0f0c29">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Minimal inline CSS for self-contained 404 -->
+    <style>
+        /* Reset */
+        * { margin:0; padding:0; box-sizing:border-box; }
+
+        body, html {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background: #0f0c29;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Particles background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Centered card */
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(20, 20, 40, 0.7);
+            backdrop-filter: blur(18px);
+            border-radius: 20px;
+            text-align: center;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px rgba(90,90,255,0.25);
+        }
+
+        /* Floating 404 animation */
+        h1 {
+            font-size: 8rem;
+            font-weight: 700;
+            color: #7b83ff;
+            animation: float 2s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(-10px); }
+            50% { transform: translateY(10px); }
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
+        .actions {
+            margin-bottom: 25px;
+        }
+
+        .actions a {
+            text-decoration: none;
+            color: white;
+            background: #7b83ff;
+            padding: 12px 24px;
+            margin: 0 8px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+
+        .actions a:hover {
+            background: #565fff;
+        }
+
+        /* Features grid */
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            gap: 20px;
+        }
+
+        .feature {
+            width: 45%;
+            background: rgba(40,40,60,0.6);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .feature span {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Footer avatars */
+        footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        footer .avatars img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Particles background -->
+<div id="particles-js"></div>
+
+<!-- Main card -->
+<div class="card">
+    <h1>404</h1>
+    <p>Oops! The page you are looking for doesn’t exist.</p>
+
+    <div class="actions">
+        <a href="https://rbxmanager.me/">Go Home</a>
+        <a href="https://discord.gg/MVcXJMS4G6" target="_blank">Support Server</a>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <span>🛠️</span>
+            <h3>Need Help?</h3>
+            <p>Check our documentation or join the Discord for assistance.</p>
+        </div>
+        <div class="feature">
+            <span>🔗</span>
+            <h3>Quick Links</h3>
+            <p>Return to the homepage or explore the features of Rbx Manager.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="avatars">
+            <img src="https://github.com/trinixcrypto.png" alt="TrinixCrypto">
+            <img src="https://github.com/oogx.png" alt="oogx">
+        </div>
+        <span>Rbx Management</span>
+    </footer>
+</div>
+
+<!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        particles: {
+            number: { value: 60 },
+            color: { value: "#7b83ff" },
+            opacity: { value: 0.25 },
+            size: { value: 2 },
+            move: { speed: 0.6 }
+        },
+        interactivity: {
+            events: {
+                onhover: { enable: true, mode: "repulse" }
+            }
+        }
+    });
+</script>
+
+</body>
+</html>
